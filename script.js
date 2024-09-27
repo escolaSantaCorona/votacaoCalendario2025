@@ -1,26 +1,27 @@
 const submitButton = document.getElementById('submit');
-
 const form = document.getElementById('sheetdb-form');
-form.addEventListener("submit", e => {
+
+form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     // Desativar o botão de enviar
     submitButton.disabled = true;
 
-    fetch(form.action, {
-        method: "POST",
-        body: new FormData(document.getElementById("sheetdb-form")),
-    }).then(
-        response => response.json()
-    ).then((html) => {
+    try {
+        const response = await fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+        });
+        const result = await response.json();
+
+        // Se o envio for bem-sucedido
         alert('FORMUÁRIO ENVIADO COM SUCESSO!!!');
         form.reset();
-
-        // Reativar o botão após a resposta do servidor
-        submitButton.disabled = false;
-    }).catch(error => {
-        // Caso haja um erro na requisição, reative o botão e informe o usuário
-        submitButton.disabled = false;
+    } catch (error) {
+        // Se houver um erro na requisição
         alert('Houve um erro ao enviar o formulário. Tente novamente.');
-    });
+    } finally {
+        // Reativar o botão após a conclusão, independentemente do sucesso ou falha
+        submitButton.disabled = false;
+    }
 });
