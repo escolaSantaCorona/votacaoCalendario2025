@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Votação do Calendário Escolar</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div id="form-outer">
+    <img id="logo" src="./logo-escola.png" alt="Logo da Escola" />
+    <h1 id="titulo">
+      Votação do Calendário Escolar
+    </h1>
+
+    <p class="description">
+      Escolha uma das propostas abaixo para o calendário escolar 2025.
+    </p>
+  
+    <form
+      action="https://sheetdb.io/api/v1/onnkzgn34qfch?sheet=escolha"
+      method="POST"
+      id="sheetdb-form"
+    >
+      <ol>
+        <li>
+          <label>
+            <input type="radio" name=data[proposta1] value="Proposta 1">
+            <strong>Proposta 1</strong>
+          </label>
+          <p>
+            Início das atividades docentes: 17 de fevereiro<br>
+            Início das atividades discentes: 19 de fevereiro<br>
+            Férias de verão: 45 dias (02 de janeiro a 15 de fevereiro)<br>
+            Férias de inverno: 15 dias (21 de julho a 04 de agosto)
+          </p>
+        </li>
+        <li>
+          <label>
+            <input type="radio" name="data[proposta2]" value="Proposta 2">
+            <strong>Proposta 2</strong>
+          </label>
+          <p>
+            Início das atividades docentes: 17 de fevereiro<br>
+            Início das atividades discentes: 18 de fevereiro<br>
+            Férias de verão: 45 dias (02 de janeiro a 15 de fevereiro)<br>
+            Férias de inverno: 15 dias (21 de julho a 04 de agosto)
+          </p>
+        </li>
+        <li>
+          <label>
+            <input type="radio" name="data[proposta3]" value="Proposta 3">
+            <strong>Proposta 3</strong>
+          </label>
+          <p>
+            Início das atividades docentes: 17 de fevereiro<br>
+            Início das atividades discentes: 19 de fevereiro<br>
+            Férias de verão: 45 dias (02 de janeiro a 15 de fevereiro)<br>
+            Férias de inverno: 15 dias (21 de julho a 04 de agosto)
+          </p>
+          <p>Observação: Dias pré definidos para a formação da SMED: 09/04, 30/06 e 26/09</p>
+        </li>
+      </ol>
+      <button id="submit" type="submit">Clique aqui para registrar a resposta</button>
+    </form>
+  </div>
+</body>
+</html>
